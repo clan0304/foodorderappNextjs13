@@ -18,7 +18,7 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     if (!session) {
-      router.push('/');
+      router.push('/login');
     } else {
       try {
         const res = await fetch('http://localhost:3000/api/orders', {
