@@ -8,11 +8,15 @@ import { useCartStore } from '@/utils/store';
 import { FaUserCircle } from 'react-icons/fa';
 import { signOut, useSession } from 'next-auth/react';
 import { IoIosHome } from 'react-icons/io';
+import { Link as NavLink } from 'react-scroll';
+import MenuNavbar from '@/app/(Home)/MenuNavbar';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const { totalItems } = useCartStore();
   const router = useRouter();
   const { data: session } = useSession();
+  const pathname = usePathname();
 
   const handleLogout = () => {
     signOut();
@@ -21,12 +25,16 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white fixed top-0 left-0 h-[120px] sm:h-[60px] w-full flex flex-col items-center z-10 border-b-2 border-slate-300">
+      <div className="flex sm:hidden gap-2 font-lobster">
+        <h1 className="text-red-600">ABC</h1> Korean{' '}
+        <h1 className="text-blue-700">Restaurant</h1>
+      </div>
       <div className="h-[60px] w-full flex justify-between items-center px-5">
-        <Link href="/" className="text-2xl font-bold font-rubik_bubbles">
+        <Link href="/" className="text-2xl font-bold font-lobster">
           <div className="block sm:hidden">
             <IoIosHome size={20} />
           </div>
-          <div className="hidden sm:flex gap-2">
+          <div className="hidden sm:flex gap-2 font-lobster">
             <h1 className="text-red-600">ABC</h1> Korean{' '}
             <h1 className="text-blue-700">Restaurant</h1>
           </div>
@@ -61,14 +69,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* <div className="w-full bg-white flex items-center justify-center sm:hidden h-[60px]">
-        <ul className="w-full justify-center flex gap-x-5 text-lg">
-          <li>Rice</li>
-          <li>Noodle</li>
-          <li>Chicken</li>
-          <li>Drinks</li>
-        </ul>
-      </div> */}
+
+      {pathname === '/' && (
+        <div className="w-full bg-white flex items-center justify-center sm:hidden h-[60px]">
+          <MenuNavbar />
+        </div>
+      )}
     </nav>
   );
 };

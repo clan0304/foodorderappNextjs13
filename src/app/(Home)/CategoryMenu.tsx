@@ -27,8 +27,8 @@ const CategoryMenu = async () => {
   );
 
   return (
-    <div className="flex flex-col gap-y-8">
-      <div id="rice-section" className="flex flex-col gap-y-2 mt-2">
+    <div className="flex flex-col gap-y-14">
+      <section id="rice-section" className="flex flex-col gap-y-2 mt-2">
         <div>
           <h1 className="text-2xl font-bold">Rice</h1>
         </div>
@@ -43,8 +43,8 @@ const CategoryMenu = async () => {
             />
           ))}
         </div>
-      </div>
-      <section>
+      </section>
+      <section id="noodle-section">
         <h1 className="text-2xl font-bold my-2">Noodle</h1>
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-3 gap-y-5">
           {noodleProducts.map((product) => (
@@ -58,7 +58,7 @@ const CategoryMenu = async () => {
           ))}
         </div>
       </section>
-      <section>
+      <section id="chicken-section" className="min-h-[50vh]">
         <h1 className="text-2xl font-bold my-2">Chicken</h1>
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-3 gap-y-5">
           {chickenProducts.map((product) => (
@@ -72,7 +72,7 @@ const CategoryMenu = async () => {
           ))}
         </div>
       </section>
-      <section>
+      <section id="drink-section" className="min-h-screen">
         <h1 className="text-2xl font-bold my-2">Drinks</h1>
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-3 gap-y-5">
           {drinksProducts.map((product) => (

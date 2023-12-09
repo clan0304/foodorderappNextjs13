@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, Roboto, Smooch_Sans, Rubik_Bubbles } from 'next/font/google';
+import { Inter, Outfit, Lobster } from 'next/font/google';
 import './globals.css';
+
 import AuthProvider from '@/components/AuthProvider';
 import Navbar from '@/components/Navbar';
 import QueryProvider from '@/components/QueryProvider';
@@ -8,15 +9,15 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ['latin'] });
-const smooch_sans = Smooch_Sans({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-smooch_sans',
+  variable: '--font-outfit',
   weight: '400',
 });
 
-const rubik_bubbles = Rubik_Bubbles({
+const lobster = Lobster({
   subsets: ['latin'],
-  variable: '--font-rubik_bubbles',
+  variable: '--font-lobster',
   weight: '400',
 });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${rubik_bubbles.variable}`}>
+      <body className={`${lobster.variable} ${outfit.variable}`}>
         <AuthProvider>
           <QueryProvider>
             <Navbar />

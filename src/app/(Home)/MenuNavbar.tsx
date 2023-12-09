@@ -3,10 +3,10 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 
-const Sidebar = () => {
+const MenuNavbar = () => {
   return (
-    <div className="sticky top-20 flex flex-col gap-20 text-xl font-semibold font-outfit hover:cursor-pointer pr-10 lg:pr-20">
-      <ul className=" hover:bg-red-600 border-2 border-black rounded-lg px-3">
+    <div className="flex gap-10 font-outfit font-semibold hover:cursor-pointer bg-white">
+      <ul className="active:bg-slate-700 border-2 border-black hover:bg-red-600 rounded-lg px-3">
         <Link
           to="rice-section"
           spy={true}
@@ -28,7 +28,7 @@ const Sidebar = () => {
           Noodle
         </Link>
       </ul>
-      <ul className="hover:bg-red-600 border-2 border-black rounded-lg px-3">
+      <ul className=" hover:bg-red-600 border-2 border-black rounded-lg px-3">
         <Link
           to="chicken-section"
           spy={true}
@@ -39,7 +39,7 @@ const Sidebar = () => {
           Chicken
         </Link>
       </ul>
-      <ul className=" hover:bg-blue-600 border-2 border-black px-3 rounded-lg">
+      <ul className="hover:bg-blue-600 px-3 border-2 border-black rounded-lg">
         <Link
           to="drink-section"
           spy={true}
@@ -54,4 +54,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default MenuNavbar;

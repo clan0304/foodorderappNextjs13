@@ -15,8 +15,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      roboto: ['var(--font-smooch_sans)'],
-      rubik_bubbles: ['var(--font-rubik_bubbles)'],
+      outfit: ['var(--font-outfit)'],
+      lobster: ['var(--font-lobster)'],
     },
   },
   plugins: [],
