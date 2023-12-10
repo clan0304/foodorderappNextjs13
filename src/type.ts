@@ -25,6 +25,7 @@ type CartType = {
 type ActionTypes = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (item: CartItemType) => void;
+  clearProducts: () => void;
 };
 
 type OrderType = {
