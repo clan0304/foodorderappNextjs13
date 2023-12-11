@@ -8,13 +8,13 @@ const Success = () => {
   const searchParams = useSearchParams();
   const { clearProducts } = useCartStore();
 
-  const payment_intent = searchParams.get('payment_intent');
+  const intentId = searchParams.get('payment_intent');
   const router = useRouter();
 
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        await fetch(`http://localhost:3000/api/confirm/${payment_intent}`, {
+        await fetch(`http://localhost:3000/api/confirm/${intentId}`, {
           method: 'PUT',
         });
 
@@ -25,7 +25,7 @@ const Success = () => {
       }
     };
     makeRequest();
-  }, [payment_intent, router, clearProducts]);
+  }, [intentId, router, clearProducts]);
 
   return (
     <div>Payment successful. You are being redirected to the orders page.</div>

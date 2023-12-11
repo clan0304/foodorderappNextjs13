@@ -74,10 +74,10 @@ model VerificationToken {
 model Order {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  price     Decimal
+  price     Float
   products  Json[]
   status    String
-  intent_id String?  @unique
+  intent_id String?   @unique
   user      User     @relation(fields: [userEmail], references: [email])
   userEmail String
 }

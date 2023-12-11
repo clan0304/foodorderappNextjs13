@@ -2,6 +2,12 @@ import prisma from '@/utils/connect';
 import { NextResponse } from 'next/server';
 
 export const PUT = async ({ params }: { params: { intentId: string } }) => {
+  if (!params || typeof params.intentId !== 'string') {
+    return new NextResponse(
+      JSON.stringify({ message: 'Invalid or missing intentId parameter' }),
+      { status: 400 }
+    );
+  }
   const { intentId } = params;
 
   try {

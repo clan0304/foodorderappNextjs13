@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { IoIosClose } from 'react-icons/io';
 
 const Cart = () => {
-  const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
+  const { products, totalPrice, removeFromCart } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
 
