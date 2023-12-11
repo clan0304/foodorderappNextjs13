@@ -2,7 +2,7 @@ import axios from 'axios';
 import CategoryItem from './CategoryItem';
 
 const getProducts = async () => {
-  const res = await axios.get('/api/products');
+  const res = await axios.get('http://localhost:3000/api/products');
 
   if (!res.data) {
     throw new Error('Failed');

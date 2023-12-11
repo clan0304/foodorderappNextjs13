@@ -6,7 +6,7 @@ import MainPhoto from './(Home)/MainPhoto';
 import Sidebar from './(Home)/Sidebar';
 
 const getProducts = async () => {
-  const res = await axios.get('/api/products');
+  const res = await axios.get('http://localhost:3000/api/products');
 
   if (!res.data) {
     throw new Error('Failed');

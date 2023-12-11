@@ -14,7 +14,7 @@ const Success = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        await fetch(`/api/confirm/${intentId}`, {
+        await fetch(`http://localhost:3000/api/confirm/${intentId}`, {
           method: 'PUT',
         });
 
