@@ -3,7 +3,7 @@ import PopularItem from './PopularItem';
 import axios from 'axios';
 
 const getPopularProducts = async () => {
-  const res = await axios.get('http://localhost:3000/api/products');
+  const res = await axios.get('/api/products');
 
   if (!res.data) {
     throw new Error('Failed!');

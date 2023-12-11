@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const getData = async (id: string) => {
-  const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+  const res = await axios.get(`/api/products/${id}`);
 
   if (!res.data) {
     throw new Error('Failed!');

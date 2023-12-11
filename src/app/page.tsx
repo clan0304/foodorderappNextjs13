@@ -4,10 +4,9 @@ import PopularMenu from './(Home)/PopularMenu';
 import axios from 'axios';
 import MainPhoto from './(Home)/MainPhoto';
 import Sidebar from './(Home)/Sidebar';
-import MenuNavbar from './(Home)/MenuNavbar';
 
 const getProducts = async () => {
-  const res = await axios.get('http://localhost:3000/api/products');
+  const res = await axios.get('/api/products');
 
   if (!res.data) {
     throw new Error('Failed');

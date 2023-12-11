@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const CategoryItem = ({ price, title, img, id, isPopular }: ProductType) => {
   return (
-    <Link href={`http://localhost:3000/${id}`}>
+    <Link href={`/${id}`}>
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">
         <div className="relative sm:w-[200px] sm:h-[200px] w-[100px] h-[100px] rounded-lg">
           <Image
