@@ -1,11 +1,9 @@
 'use client';
 
-import { useCartStore } from '@/utils/store';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useEffect } from 'react';
 
 const ConfirmOperation: React.FC<{ intentId: string }> = ({ intentId }) => {
-  const { clearProducts } = useCartStore();
   const router = useRouter();
 
   useEffect(() => {
@@ -16,13 +14,12 @@ const ConfirmOperation: React.FC<{ intentId: string }> = ({ intentId }) => {
         });
 
         router.push('/');
-        clearProducts();
       } catch (err) {
         console.log(err);
       }
     };
     makeRequest();
-  }, [intentId, router, clearProducts]);
+  }, [intentId, router]);
 
   return (
     <div>Payment successful. You are being redirected to the orders page.</div>
