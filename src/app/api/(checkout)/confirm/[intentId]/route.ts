@@ -14,6 +14,17 @@ export const PUT = async (
   const { intentId } = params;
 
   try {
+    const existingOrder = await prisma.order.findUnique({
+      where: { intent_id: intentId },
+    });
+
+    if (!existingOrder) {
+      return new NextResponse(
+        JSON.stringify({ message: 'Order not found for provided intentId' }),
+        { status: 404 }
+      );
+    }
+
     await prisma.order.update({
       where: {
         intent_id: intentId,

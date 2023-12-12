@@ -1,26 +1,10 @@
-import CategoryMenu from './(Home)/CategoryMenu';
-import PopularMenu from './(Home)/PopularMenu';
+import CategoryMenu from '../components/(Home)/CategoryMenu';
+import PopularMenu from '../components/(Home)/PopularMenu';
 
-import axios from 'axios';
-import MainPhoto from './(Home)/MainPhoto';
-import Sidebar from './(Home)/Sidebar';
-
-const getProducts = async () => {
-  const res = await axios.get('http://localhost:3000/api/products');
-
-  if (!res.data) {
-    throw new Error('Failed');
-  }
-
-  return res.data;
-};
+import MainPhoto from '../components/(Home)/MainPhoto';
+import Sidebar from '../components/(Home)/Sidebar';
 
 export default async function Home() {
-  const products: ProductType[] = await getProducts();
-  const popularProducts: ProductType[] = products.filter(
-    (product) => product.isPopular === true
-  );
-
   return (
     <main className="flex flex-col px-10 gap-2 w-full">
       <div className="w-full h-[300px] relative my-10">
