@@ -4,7 +4,7 @@ import PopularMenu from '../components/(Home)/PopularMenu';
 import MainPhoto from '../components/(Home)/MainPhoto';
 import Sidebar from '../components/(Home)/Sidebar';
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="flex flex-col px-10 gap-2 w-full">
       <div className="w-full h-[300px] relative my-10">
