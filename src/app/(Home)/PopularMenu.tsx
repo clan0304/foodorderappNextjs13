@@ -3,9 +3,17 @@ import PopularItem from './PopularItem';
 
 const getPopularProducts = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`, {
-      cache: 'no-store',
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
+      {
+        cache: 'no-store',
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error('Failed!');
+    }
+
     return res.json();
   } catch (error) {
     throw new Error('Failed!');

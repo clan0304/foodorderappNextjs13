@@ -14,7 +14,10 @@ export const GET = async (
       },
     });
 
-    return new NextResponse(JSON.stringify(product), { status: 200 });
+    return new NextResponse(JSON.stringify(product), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: 'Something went wrong!' }),

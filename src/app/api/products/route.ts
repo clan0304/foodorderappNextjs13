@@ -26,7 +26,10 @@ export const POST = async (req: NextRequest) => {
 export const GET = async (req: NextRequest) => {
   try {
     const products = await prisma.product.findMany();
-    return new NextResponse(JSON.stringify(products), { status: 200 });
+    return new NextResponse(JSON.stringify(products), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: 'Something went wrong' }),

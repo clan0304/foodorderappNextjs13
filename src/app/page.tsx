@@ -1,8 +1,8 @@
-import CategoryMenu from '../components/(Home)/CategoryMenu';
-import PopularMenu from '../components/(Home)/PopularMenu';
+import CategoryMenu from './(Home)/CategoryMenu';
+import PopularMenu from './(Home)/PopularMenu';
 
-import MainPhoto from '../components/(Home)/MainPhoto';
-import Sidebar from '../components/(Home)/Sidebar';
+import MainPhoto from './(Home)/MainPhoto';
+import Sidebar from './(Home)/Sidebar';
 
 export default function Home() {
   return (
