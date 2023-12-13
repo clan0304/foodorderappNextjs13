@@ -24,7 +24,7 @@ const Orders = () => {
 
   const mutation = useMutation({
     mutationFn: ({ id, status }: { id: string; status: string }) => {
-      return fetch(`http://localhost:3000/api/orders/${id}`, {
+      return fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/orders/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

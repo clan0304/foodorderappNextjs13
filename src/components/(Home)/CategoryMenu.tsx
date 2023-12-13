@@ -2,9 +2,12 @@ import CategoryItem from './CategoryItem';
 
 const getProducts = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/products', {
-      cache: 'no-store',
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
+      {
+        cache: 'no-store',
+      }
+    );
     return res.json();
   } catch (error) {
     throw new Error('Failed!');
