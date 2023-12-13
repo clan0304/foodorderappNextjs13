@@ -1,17 +1,15 @@
 import React from 'react';
 import PopularItem from './PopularItem';
-import axios from 'axios';
 
 const getPopularProducts = async () => {
-  const res = await fetch('http://localhost:3000/api/products', {
-    cache: 'no-store',
-  });
-
-  if (!res.ok) {
+  try {
+    const res = await fetch('http://localhost:3000/api/products', {
+      cache: 'no-store',
+    });
+    return res.json();
+  } catch (error) {
     throw new Error('Failed!');
   }
-
-  return res.json();
 };
 
 const PopularMenu = async () => {
