@@ -1,14 +1,15 @@
-import axios from 'axios';
 import CategoryItem from './CategoryItem';
 
 const getProducts = async () => {
-  const res = await axios.get('http://localhost:3000/api/products');
+  const res = await fetch('http://localhost:3000/api/products', {
+    cache: 'no-store',
+  });
 
-  if (!res.data) {
+  if (!res.ok) {
     throw new Error('Failed');
   }
 
-  return res.data;
+  return res.json();
 };
 
 const CategoryMenu = async () => {

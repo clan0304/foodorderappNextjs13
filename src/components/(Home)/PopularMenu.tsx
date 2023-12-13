@@ -3,13 +3,15 @@ import PopularItem from './PopularItem';
 import axios from 'axios';
 
 const getPopularProducts = async () => {
-  const res = await axios.get('http://localhost:3000/api/products');
+  const res = await fetch('http://localhost:3000/api/products', {
+    cache: 'no-store',
+  });
 
-  if (!res.data) {
+  if (!res.ok) {
     throw new Error('Failed!');
   }
 
-  return res.data;
+  return res.json();
 };
 
 const PopularMenu = async () => {
