@@ -1,44 +1,39 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useCartStore } from '@/utils/store';
 
-const ConfirmOperation: React.FC<{ intentId: string }> = ({ intentId }) => {
+const SuccessPage = () => {
   const router = useRouter();
+
+  const { clearProducts } = useCartStore();
 
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        await fetch(`http://localhost:3000/api/confirm/${intentId}`, {
-          method: 'PUT',
-        });
-
-        router.push('/');
+        setTimeout(() => {
+          clearProducts();
+          router.push('/');
+        }, 5000);
       } catch (err) {
         console.log(err);
       }
     };
+
     makeRequest();
-  }, [intentId, router]);
+  }, [router, clearProducts]);
 
   return (
-    <div>Payment successful. You are being redirected to the orders page.</div>
+    <>
+      <div className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] flex items-center justify-center text-center text-2xl text-green-700">
+        <p className="max-w-[600px]">
+          Payment successful. You are being redirected to the orders page.
+          Please do not close the page.
+        </p>
+      </div>
+    </>
   );
 };
 
-const Success = () => {
-  const searchParams = useSearchParams();
-  const intentId = searchParams.get('payment_intent');
-
-  if (!intentId) {
-    return <div>Payment intent not found.</div>;
-  }
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ConfirmOperation intentId={intentId} />
-    </Suspense>
-  );
-};
-
-export default Success;
+export default SuccessPage;
