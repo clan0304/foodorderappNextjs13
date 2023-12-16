@@ -10,10 +10,9 @@ const CategoryMenu = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          'https://foodorderapp-nextjs13.vercel.app/api/products'
-        );
+        const response = await axios.get('/api/products');
         setProducts(response.data);
+        console.log(response.data);
       } catch (err) {
         setError('Failed to load data');
         console.error(err);

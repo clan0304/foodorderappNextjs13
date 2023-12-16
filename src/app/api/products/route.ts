@@ -28,7 +28,6 @@ export const GET = async (req: NextRequest) => {
     const products = await prisma.product.findMany();
     return new NextResponse(JSON.stringify(products), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
     return new NextResponse(
