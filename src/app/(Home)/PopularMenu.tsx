@@ -13,7 +13,7 @@ const PopularMenu = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          'https://foodorderapp-nextjs13.vercel.app//api/products'
+          'https://foodorderapp-nextjs13.vercel.app/api/products'
         );
         setProducts(response.data);
       } catch (err) {
