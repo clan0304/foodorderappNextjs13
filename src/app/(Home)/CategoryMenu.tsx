@@ -1,30 +1,23 @@
-'use client';
 import CategoryItem from './CategoryItem';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-const CategoryMenu = () => {
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [error, setError] = useState('');
+export const getProducts = async () => {
+  try {
+    const products = await axios.get(
+      `${process.env.DATABASE_URL}/api/products`
+    );
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('/api/products');
-        setProducts(response.data);
-        console.log(response.data);
-      } catch (err) {
-        setError('Failed to load data');
-      }
-    };
+    if (!products.data) {
+      throw new Error('failed!');
+    }
 
-    fetchProducts();
-  }, []);
-
-  if (error) {
-    return <div>Page is not found!</div>;
+    return products.data;
+  } catch (error) {
+    console.error('Failed to fetch!');
   }
-
+};
+const CategoryMenu = async () => {
+  const products: ProductType[] = await getProducts();
   const riceProducts: ProductType[] = products.filter(
     (product) => product.category === 'rice'
   );

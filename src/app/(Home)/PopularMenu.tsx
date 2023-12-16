@@ -1,32 +1,25 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import PopularItem from './PopularItem';
 
 import axios from 'axios';
 
-const PopularMenu = () => {
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [error, setError] = useState('');
+export const getProducts = async () => {
+  try {
+    const products = await axios.get(
+      `${process.env.DATABASE_URL}/api/products`
+    );
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          'https://foodorderapp-nextjs13.vercel.app/api/products'
-        );
-        setProducts(response.data);
-      } catch (err) {
-        setError('Failed to load data');
-      }
-    };
+    if (!products.data) {
+      throw new Error('failed!');
+    }
 
-    fetchProducts();
-  }, []);
-
-  if (error) {
-    return <div>Page is not found!</div>;
+    return products.data;
+  } catch (error) {
+    console.error('Failed to fetch!');
   }
+};
+
+const PopularMenu = async () => {
+  const products: ProductType[] = await getProducts();
 
   const popularProducts: ProductType[] = products.filter(
     (product) => product.isPopular === true
