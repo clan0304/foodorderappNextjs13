@@ -23,7 +23,7 @@ export const POST = async (req: NextRequest) => {
   }
 };
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   try {
     const products = await prisma.product.findMany();
     return new NextResponse(JSON.stringify(products), {
