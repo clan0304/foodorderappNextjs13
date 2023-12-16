@@ -1,19 +1,32 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import PopularItem from './PopularItem';
-import { prisma } from '@/utils/connect';
 
-const getPopularProducts = async () => {
-  try {
-    const products = await prisma.product.findMany();
+import axios from 'axios';
 
-    return products;
-  } catch (error) {
-    throw new Error('Failed!');
+const PopularMenu = () => {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('/api/products'); // Adjust the API endpoint as needed
+        setProducts(response.data);
+      } catch (err) {
+        setError('Failed to load data');
+        console.error(err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (error) {
+    return <div>Page is not found!</div>;
   }
-};
 
-const PopularMenu = async () => {
-  const products: ProductType[] = await getPopularProducts();
   const popularProducts: ProductType[] = products.filter(
     (product) => product.isPopular === true
   );

@@ -1,18 +1,30 @@
-import { prisma } from '@/utils/connect';
+'use client';
 import CategoryItem from './CategoryItem';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const getProducts = async () => {
-  try {
-    const products = await prisma.product.findMany();
+const CategoryMenu = () => {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [error, setError] = useState('');
 
-    return products;
-  } catch (error) {
-    throw new Error('Failed!');
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('/api/products'); // Adjust the API endpoint as needed
+        setProducts(response.data);
+      } catch (err) {
+        setError('Failed to load data');
+        console.error(err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (error) {
+    return <div>Page is not found!</div>;
   }
-};
 
-const CategoryMenu = async () => {
-  const products: ProductType[] = await getProducts();
   const riceProducts: ProductType[] = products.filter(
     (product) => product.category === 'rice'
   );
