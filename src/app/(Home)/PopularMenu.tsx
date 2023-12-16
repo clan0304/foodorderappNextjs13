@@ -12,7 +12,9 @@ const PopularMenu = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('/api/products'); // Adjust the API endpoint as needed
+        const response = await axios.get(
+          'https://foodorderapp-nextjs13.vercel.app//api/products'
+        );
         setProducts(response.data);
       } catch (err) {
         setError('Failed to load data');
