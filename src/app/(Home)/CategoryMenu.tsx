@@ -1,11 +1,10 @@
+import { BASE_API_URL } from '@/utils/constants';
 import CategoryItem from './CategoryItem';
 import axios from 'axios';
 
 export const getProducts = async () => {
   try {
-    const products = await axios.get(
-      `${process.env.DATABASE_URL}/api/products`
-    );
+    const products = await axios.get(`${BASE_API_URL}/api/products`);
 
     if (!products.data) {
       throw new Error('failed!');
@@ -17,6 +16,9 @@ export const getProducts = async () => {
   }
 };
 const CategoryMenu = async () => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   const products: ProductType[] = await getProducts();
   const riceProducts: ProductType[] = products.filter(
     (product) => product.category === 'rice'
