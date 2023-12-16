@@ -1,6 +1,6 @@
 'use client';
 
-import { useCartStore } from '@/utils/store';
+import { useCartStore } from '../utils/store';
 import { useEffect, useState } from 'react';
 import { CiSquarePlus } from 'react-icons/ci';
 import { CiSquareMinus } from 'react-icons/ci';

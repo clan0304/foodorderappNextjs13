@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
-import { useCartStore } from '@/utils/store';
+import { useCartStore } from '../../utils/store';
 
 const SuccessPage = () => {
   const router = useRouter();

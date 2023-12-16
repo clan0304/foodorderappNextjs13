@@ -1,6 +1,6 @@
 'use client';
 
-import { useCartStore } from '@/utils/store';
+import { useCartStore } from '../../utils/store';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

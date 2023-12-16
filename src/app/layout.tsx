@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Inter, Outfit, Lobster } from 'next/font/google';
 import './globals.css';
 
-import AuthProvider from '@/components/AuthProvider';
-import Navbar from '@/components/Navbar';
-import QueryProvider from '@/components/QueryProvider';
+import AuthProvider from '../components/AuthProvider';
+import Navbar from '../components/Navbar';
+import QueryProvider from '../components/QueryProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

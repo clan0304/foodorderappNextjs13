@@ -4,12 +4,12 @@ import Link from 'next/link';
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import { useCartStore } from '@/utils/store';
+import { useCartStore } from '../utils/store';
 import { FaUserCircle } from 'react-icons/fa';
 import { signOut, useSession } from 'next-auth/react';
 import { IoIosHome } from 'react-icons/io';
 import { Link as NavLink } from 'react-scroll';
-import MenuNavbar from '@/app/(Home)/MenuNavbar';
+import MenuNavbar from '../app/(Home)/MenuNavbar';
 import { usePathname } from 'next/navigation';
 
 const Navbar = () => {

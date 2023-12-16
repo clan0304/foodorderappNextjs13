@@ -1,4 +1,4 @@
-import { BASE_API_URL } from '@/utils/constants';
+import { BASE_API_URL } from '../../utils/constants';
 import PopularItem from './PopularItem';
 
 import axios from 'axios';

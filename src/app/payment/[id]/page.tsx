@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from '@/components/CheckoutForm';
+import CheckoutForm from '../../../components/CheckoutForm';
 
 const Payment = ({ params }: { params: { id: string } }) => {
   const [clientSecret, setClientSecret] = useState('');

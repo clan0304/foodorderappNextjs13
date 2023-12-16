@@ -1,4 +1,4 @@
-import AddProductModal from '@/components/AddProductModal';
+import AddProductModal from '../../components/AddProductModal';
 
 const AddProduct = () => {
   return (
