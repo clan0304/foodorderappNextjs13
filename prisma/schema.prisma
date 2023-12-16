@@ -16,9 +16,9 @@ model Product {
   title String
   desc String
   img String
-  price Decimal
+  price Float
   category String
-  isPopular Boolean? @default(false)
+  isPopular Boolean @default(false)
   message String?
 
 

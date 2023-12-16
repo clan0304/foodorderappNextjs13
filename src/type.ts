@@ -5,7 +5,7 @@ type ProductType = {
   img: string;
   desc?: string;
   category?: string;
-  isPopular?: boolean;
+  isPopular: boolean;
 };
 
 type CartItemType = {

@@ -1,19 +1,26 @@
 import Price from '@/components/Price';
+import { prisma } from '@/utils/connect';
 import axios from 'axios';
 import Image from 'next/image';
 import React from 'react';
 
 const getData = async (id: string) => {
-  const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+  const product = await prisma.product.findUnique({
+    where: { id: id },
+  });
 
-  if (!res.data) {
-    throw new Error('Failed!');
+  if (!product) {
+    console.log('Product is not found!');
   }
 
-  return res.data;
+  return product;
 };
 const Item = async ({ params }: { params: { id: string } }) => {
-  const singleItem: ProductType = await getData(params.id);
+  const singleItem: ProductType | null = await getData(params.id);
+
+  if (!singleItem) {
+    return <div>Item is not found!</div>;
+  }
   return (
     <div className="flex flex-col sm:flex-row items-center justify-around w-full gap-4">
       <div className="rounded-lg flex w-full sm:w-1/2 sm: mx-6 h-[300px] relative">

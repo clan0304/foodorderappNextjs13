@@ -1,18 +1,11 @@
+import { prisma } from '@/utils/connect';
 import CategoryItem from './CategoryItem';
 
 const getProducts = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
-      {
-        cache: 'no-store',
-      }
-    );
-    if (!res.ok) {
-      throw new Error('Failed!');
-    }
+    const products = await prisma.product.findMany();
 
-    return res.json();
+    return products;
   } catch (error) {
     throw new Error('Failed!');
   }
@@ -43,6 +36,7 @@ const CategoryMenu = async () => {
           {riceProducts.map((product) => (
             <CategoryItem
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               img={product.img}
@@ -57,6 +51,7 @@ const CategoryMenu = async () => {
           {noodleProducts.map((product) => (
             <CategoryItem
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               img={product.img}
@@ -71,6 +66,7 @@ const CategoryMenu = async () => {
           {chickenProducts.map((product) => (
             <CategoryItem
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               img={product.img}
@@ -85,6 +81,7 @@ const CategoryMenu = async () => {
           {drinksProducts.map((product) => (
             <CategoryItem
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               img={product.img}

@@ -1,20 +1,12 @@
 import React from 'react';
 import PopularItem from './PopularItem';
+import { prisma } from '@/utils/connect';
 
 const getPopularProducts = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
-      {
-        cache: 'no-store',
-      }
-    );
+    const products = await prisma.product.findMany();
 
-    if (!res.ok) {
-      throw new Error('Failed!');
-    }
-
-    return res.json();
+    return products;
   } catch (error) {
     throw new Error('Failed!');
   }
