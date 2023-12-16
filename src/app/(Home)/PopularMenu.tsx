@@ -18,6 +18,9 @@ export const getProducts = async () => {
 };
 
 const PopularMenu = async () => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   const products: ProductType[] = await getProducts();
 
   const popularProducts: ProductType[] = products.filter(

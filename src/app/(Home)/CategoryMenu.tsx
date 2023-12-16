@@ -16,6 +16,9 @@ export const getProducts = async () => {
   }
 };
 const CategoryMenu = async () => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   const products: ProductType[] = await getProducts();
   const riceProducts: ProductType[] = products.filter(
     (product) => product.category === 'rice'
