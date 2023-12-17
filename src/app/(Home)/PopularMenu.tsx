@@ -7,21 +7,19 @@ export const getProducts = async () => {
   try {
     const products = await axios.get(`${BASE_API_URL}/api/products`);
 
-    if (!products.data) {
-      throw new Error('failed!');
-    }
-
-    return products.data;
+    return products.data || [];
   } catch (error) {
     console.error('Failed to fetch!');
+    return [];
   }
 };
 
 const PopularMenu = async () => {
-  if (!BASE_API_URL) {
-    return null;
-  }
   const products: ProductType[] = await getProducts();
+
+  if (!products || products.length === 0) {
+    return <div> No Products found.</div>;
+  }
 
   const popularProducts: ProductType[] = products.filter(
     (product) => product.isPopular === true
