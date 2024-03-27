@@ -1,5 +1,6 @@
 'use client';
 
+import { OrderType } from '@/type';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';

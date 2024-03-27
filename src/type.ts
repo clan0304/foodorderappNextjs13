@@ -28,7 +28,7 @@ export type ActionTypes = {
   clearProducts: () => void;
 };
 
-type OrderType = {
+export type OrderType = {
   id: string;
   userEmail: string;
   price: number;
