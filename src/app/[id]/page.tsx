@@ -1,22 +1,14 @@
+import { SafeProduct } from '@/type';
 import Price from '../../components/Price';
 import { prisma } from '../../utils/connect';
 import axios from 'axios';
 import Image from 'next/image';
 import React from 'react';
+import getProduct from '../actions/getProduct';
 
-const getData = async (id: string) => {
-  const product = await prisma.product.findUnique({
-    where: { id: id },
-  });
-
-  if (!product) {
-    console.log('Product is not found!');
-  }
-
-  return product;
-};
 const Item = async ({ params }: { params: { id: string } }) => {
-  const singleItem: ProductType | null = await getData(params.id);
+  const { id } = params;
+  const singleItem: SafeProduct | null = await getProduct(id);
 
   if (!singleItem) {
     return <div>Item is not found!</div>;
