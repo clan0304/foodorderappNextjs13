@@ -1,12 +1,13 @@
 'use client';
 
+import { SafeProduct } from '@/type';
 import { useCartStore } from '../utils/store';
 import { useEffect, useState } from 'react';
 import { CiSquarePlus } from 'react-icons/ci';
 import { CiSquareMinus } from 'react-icons/ci';
 import { toast } from 'react-toastify';
 
-const Price = ({ product }: { product: ProductType }) => {
+const Price = ({ product }: { product: SafeProduct }) => {
   const { addToCart } = useCartStore();
   const [quantity, setQuantity] = useState(1);
 
