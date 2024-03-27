@@ -17,8 +17,8 @@ const PopularItem = ({ title, price, img, id, isPopular }: SafeProduct) => {
           />
           {isPopular && (
             <div className="absolute top-3 left-0">
-              <div className="w-[80px] text-center rounded-md h-6 bg-green-500 text-white text-md font-semibold">
-                <h1 className="ml-1">Popular</h1>
+              <div className="w-[60px] sm:w-[80px] flex justify-center items-center text-center rounded-md h-6 bg-green-500 text-white text-md font-semibold">
+                <h1 className="ml-1 text-[0.75rem] sm:text-[1rem]">Popular</h1>
               </div>
             </div>
           )}
