@@ -16,13 +16,13 @@ type CartItemType = {
   quantity: number;
 };
 
-type CartType = {
+export type CartType = {
   products: CartItemType[];
   totalItems: number;
   totalPrice: number;
 };
 
-type ActionTypes = {
+export type ActionTypes = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (item: CartItemType) => void;
   clearProducts: () => void;

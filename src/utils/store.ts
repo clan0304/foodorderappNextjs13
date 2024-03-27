@@ -1,3 +1,4 @@
+import { ActionTypes, CartType } from '@/type';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
