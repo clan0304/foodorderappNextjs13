@@ -1,7 +1,6 @@
 import { SafeProduct } from '@/type';
 import Price from '../../components/Price';
-import { prisma } from '../../utils/connect';
-import axios from 'axios';
+
 import Image from 'next/image';
 import React from 'react';
 import getProduct from '../actions/getProduct';
