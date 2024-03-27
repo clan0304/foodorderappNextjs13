@@ -37,3 +37,7 @@ type OrderType = {
   createdAt: Date;
   intent_id?: string;
 };
+
+export type SafeProduct = Omit<ProductType, 'createdAt'> & {
+  createdAt?: string;
+};

@@ -1,34 +1,26 @@
+import { SafeProduct } from '@/type';
 import { BASE_API_URL } from '../../utils/constants';
 import CategoryItem from './CategoryItem';
 import axios from 'axios';
+import getProducts from '../actions/getProducts';
 
-export const getProducts = async () => {
-  try {
-    const products = await axios.get(`${BASE_API_URL}/api/products`);
-
-    return products.data || [];
-  } catch (error) {
-    console.error('Failed to fetch!');
-    return [];
-  }
-};
 const CategoryMenu = async () => {
-  const products: ProductType[] = await getProducts();
+  const products: SafeProduct[] = await getProducts();
 
   if (!products || products.length === 0) {
     return <div> No Products found.</div>;
   }
 
-  const riceProducts: ProductType[] = products.filter(
+  const riceProducts: SafeProduct[] = products.filter(
     (product) => product.category === 'rice'
   );
-  const noodleProducts: ProductType[] = products.filter(
+  const noodleProducts: SafeProduct[] = products.filter(
     (product) => product.category === 'noodle'
   );
-  const chickenProducts: ProductType[] = products.filter(
+  const chickenProducts: SafeProduct[] = products.filter(
     (product) => product.category === 'chicken'
   );
-  const drinksProducts: ProductType[] = products.filter(
+  const drinksProducts: SafeProduct[] = products.filter(
     (product) => product.category === 'drinks'
   );
 

@@ -1,27 +1,17 @@
+import { SafeProduct } from '@/type';
 import { BASE_API_URL } from '../../utils/constants';
 import PopularItem from './PopularItem';
 
-import axios from 'axios';
-
-export const getProducts = async () => {
-  try {
-    const products = await axios.get(`${BASE_API_URL}/api/products`);
-
-    return products.data || [];
-  } catch (error) {
-    console.error('Failed to fetch!');
-    return [];
-  }
-};
+import getProducts from '../actions/getProducts';
 
 const PopularMenu = async () => {
-  const products: ProductType[] = await getProducts();
+  const products: SafeProduct[] = await getProducts();
 
   if (!products || products.length === 0) {
     return <div> No Products found.</div>;
   }
 
-  const popularProducts: ProductType[] = products.filter(
+  const popularProducts: SafeProduct[] = products.filter(
     (product) => product.isPopular === true
   );
   return (

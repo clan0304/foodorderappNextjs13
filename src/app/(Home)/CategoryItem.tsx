@@ -1,7 +1,8 @@
+import { SafeProduct } from '@/type';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const CategoryItem = ({ price, title, img, id, isPopular }: ProductType) => {
+const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
   return (
     <Link href={`/${id}`}>
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">

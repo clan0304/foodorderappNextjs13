@@ -1,8 +1,9 @@
+import { SafeProduct } from '@/type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const PopularItem = ({ title, price, img, id, isPopular }: ProductType) => {
+const PopularItem = ({ title, price, img, id, isPopular }: SafeProduct) => {
   return (
     <Link href={`/${id}`}>
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">
