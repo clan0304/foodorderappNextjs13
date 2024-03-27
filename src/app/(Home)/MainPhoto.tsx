@@ -5,7 +5,7 @@ import SweetChilliChicken from '../../images/sweetchillichicken.jpeg';
 const MainPhoto = () => {
   return (
     <div className="flex flex-col sm:flex-row h-[250px] w-full gap-3 items-center justify-center  bg-white text-black">
-      <div className="sm:flex w-full sm:w-3/5 h-[250px] relative">
+      <div className="sm:flex w-full sm:w-3/5 aspect-[16/9] relative">
         <Image src={SweetChilliChicken} alt="chicken" fill objectFit="cover" />
       </div>
       <div className="flex w-4/5 sm:w-2/5 relative">
