@@ -1,7 +1,7 @@
 import { SafeProduct } from '@/type';
-import { BASE_API_URL } from '../../utils/constants';
+
 import CategoryItem from './CategoryItem';
-import axios from 'axios';
+
 import getProducts from '../actions/getProducts';
 
 const CategoryMenu = async () => {
