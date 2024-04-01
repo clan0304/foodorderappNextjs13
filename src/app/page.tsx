@@ -1,16 +1,16 @@
 import CategoryMenu from './(Home)/CategoryMenu';
 import PopularMenu from './(Home)/PopularMenu';
 
-import MainPhoto from './(Home)/MainPhoto';
 import Sidebar from './(Home)/Sidebar';
+import Carousel from './(Home)/Carousel';
 
 export default function Home() {
   return (
-    <main className="flex flex-col px-10 gap-2 w-full">
-      <div className="w-full h-[300px] relative my-10">
-        <MainPhoto />
+    <main className="flex flex-col gap-2 w-full">
+      <div className="w-full h-full mb-10 ">
+        <Carousel />
       </div>
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col sm:flex-row gap-3 px-10">
         <div className="hidden sm:block sm:w-1/4 lg:w-1/5 w-full">
           <Sidebar />
         </div>

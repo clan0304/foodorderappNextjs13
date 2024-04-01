@@ -48,7 +48,7 @@ const Price = ({ product }: { product: SafeProduct }) => {
       <div className="flex justify-center mt-3">
         <h3>Total: ${totalItemPrice}</h3>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="w-1/2 sm:w-full lg:w-2/3 flex justify-center">
         <button
           className="bg-blue-500 text-xl font-semibold text-white mt-2 w-full mx-2 h-10 rounded-md"
           onClick={handleCart}

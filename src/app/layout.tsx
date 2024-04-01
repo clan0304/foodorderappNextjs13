@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lobster.variable} ${outfit.variable}`}>
+      <body className={`${outfit.variable} ${lobster.variable}`}>
         <AuthProvider>
           <QueryProvider>
             <Navbar />

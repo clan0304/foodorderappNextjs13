@@ -44,17 +44,23 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col lg:flex-row lg:items-center w-full p-10 gap-20">
-      <div className="w-full lg:w-3/4">
+      <div className="w-full lg:w-3/5">
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex flex-row gap-y-10 justify-between gap-x-5 items-center"
+            className="flex flex-row gap-y-10 justify-between gap-x-5 items-center mt-10"
           >
-            <div className="relative w-[60px] h-[60px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px]">
-              <Image fill objectFit="cover" src={product.img} alt="Image" />
+            <div className="relative w-1/5 aspect-[1/1] rounded-md">
+              <Image
+                fill
+                objectFit="cover"
+                src={product.img}
+                alt="Image"
+                className="rounded-md"
+              />
             </div>
-            <div className="flex gap-x-3 justify-between items-center h-[40px]">
-              <h1 className="text-xs sm:text-md">{product.title}</h1>
+            <div className="flex gap-x-3 w-2/5 justify-around items-center h-[40px]">
+              <h1 className="text-md sm:text-lg">{product.title}</h1>
               <h2 className="text-xs sm:text-md">X{product.quantity}</h2>
             </div>
             <div className="flex items-center flex-col sm:flex-row sm:gap-10">
@@ -62,25 +68,25 @@ const Cart = () => {
                 $ {product.price}
               </span>
             </div>
-            <IoIosClose
-              color="red"
-              size={30}
-              className="color-red hover:opacity-50 hover:cursor-pointer"
+            <p
+              className="hover:underline hover:cursor-pointer text-red-600"
               onClick={() => removeFromCart(product)}
-            />
+            >
+              Remove
+            </p>
           </div>
         ))}
       </div>
 
-      <div className="flex w-full lg:w-1/4 items-center justify-center">
+      <div className="flex w-full lg:w-2/5 items-center justify-center">
         <div className="flex flex-col w-full items-center gap-3">
-          <h1>Food Price : {totalPrice}</h1>
-          <h1>Delivery Costs: 0</h1>
+          <h1>Food Price : $ {totalPrice}</h1>
+          <h1>Delivery Costs: $ 0</h1>
           <div className="w-full border-2 border-black" />
-          <h1>Total Price: {totalPrice}</h1>
+          <h1>Total Price: $ {totalPrice}</h1>
           <div className="my-10 w-full">
             <button
-              className="px-5 text-lg bg-blue-500 w-full hover:pointer-cursor hover:opacity-80"
+              className="px-5 text-lg bg-blue-500 w-full hover:pointer-cursor hover:opacity-80 rounded-md font-semibold"
               onClick={handleCheckout}
             >
               Check Out
