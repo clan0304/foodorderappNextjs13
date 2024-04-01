@@ -45,6 +45,63 @@ export const useCartStore = create(
           }));
         }
       },
+
+      incrementQuantity: (productId: string | undefined) => {
+        set((state) => {
+          const products = state.products.map((product) => {
+            if (product.id === productId) {
+              const newQuantity = product.quantity + 1;
+              const newPrice = (product.price / product.quantity) * newQuantity;
+              return {
+                ...product,
+                quantity: newQuantity,
+                price: newPrice,
+              };
+            }
+            return product;
+          });
+
+          const newTotalPrice = products.reduce(
+            (total, product) => total + product.price,
+            0
+          );
+
+          return {
+            ...state,
+            products,
+            totalItems: state.totalItems + 1,
+            totalPrice: newTotalPrice,
+          };
+        });
+      },
+      decrementQuantity: (productId: string | undefined) => {
+        set((state) => {
+          const products = state.products.map((product) => {
+            if (product.id === productId && product.quantity > 1) {
+              const newQuantity = product.quantity - 1;
+              const newPrice = (product.price / product.quantity) * newQuantity;
+              return {
+                ...product,
+                quantity: newQuantity,
+                price: newPrice,
+              };
+            }
+            return product;
+          });
+
+          const newTotalPrice = products.reduce(
+            (total, product) => total + product.price,
+            0
+          );
+
+          return {
+            ...state,
+            products,
+            totalItems: state.totalItems > 0 ? state.totalItems - 1 : 0,
+            totalPrice: newTotalPrice,
+          };
+        });
+      },
       removeFromCart(item) {
         set((state) => ({
           products: state.products.filter((product) => product.id !== item.id),

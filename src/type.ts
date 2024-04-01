@@ -1,5 +1,5 @@
 type ProductType = {
-  id?: string;
+  id: string;
   title: string;
   price: number;
   img: string;
@@ -26,6 +26,8 @@ export type ActionTypes = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (item: CartItemType) => void;
   clearProducts: () => void;
+  incrementQuantity: (productId: string | undefined) => void;
+  decrementQuantity: (productId: string | undefined) => void;
 };
 
 export type OrderType = {

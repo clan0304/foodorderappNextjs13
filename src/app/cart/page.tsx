@@ -5,10 +5,17 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { IoIosClose } from 'react-icons/io';
+import { CiSquarePlus } from 'react-icons/ci';
+import { CiSquareMinus } from 'react-icons/ci';
 
 const Cart = () => {
-  const { products, totalPrice, removeFromCart } = useCartStore();
+  const {
+    products,
+    totalPrice,
+    removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
+  } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -61,7 +68,19 @@ const Cart = () => {
             </div>
             <div className="flex gap-x-3 w-2/5 justify-around items-center h-[40px]">
               <h1 className="text-md sm:text-lg">{product.title}</h1>
-              <h2 className="text-xs sm:text-md">X{product.quantity}</h2>
+              <div className="flex gap-2 items-center">
+                <CiSquareMinus
+                  size={15}
+                  onClick={() => decrementQuantity(product.id)}
+                  className="hover:opacity-40 hover:cursor-pointer"
+                />
+                <p>{product.quantity}</p>
+                <CiSquarePlus
+                  size={15}
+                  onClick={() => incrementQuantity(product.id)}
+                  className="hover:opacity-40 hover:cursor-pointer"
+                />
+              </div>
             </div>
             <div className="flex items-center flex-col sm:flex-row sm:gap-10">
               <span className="text-blue-600 font-bold text-md sm:text-lg">

@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
       <div className="h-[60px] w-full flex justify-between items-center px-5">
         <Link href="/" className="text-2xl font-bold font-lobster">
-          <div className="block sm:hidden">
+          <div className="block sm:hidden" aria-label="home">
             <IoIosHome size={20} />
           </div>
           <div className="hidden sm:flex gap-2 font-lobster">

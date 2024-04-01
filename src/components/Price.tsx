@@ -53,7 +53,7 @@ const Price = ({ product }: { product: SafeProduct }) => {
           className="bg-blue-500 text-xl font-semibold text-white mt-2 w-full mx-2 h-10 rounded-md"
           onClick={handleCart}
         >
-          Add {quantity} to cart ${totalItemPrice}
+          Add to Cart
         </button>
       </div>
     </div>
