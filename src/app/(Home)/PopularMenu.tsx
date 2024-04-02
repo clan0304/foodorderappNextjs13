@@ -16,7 +16,7 @@ const PopularMenu = async () => {
   );
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-2xl font-bold">Popular items</h1>
+      <h1 className="text-xl sm:text-2xl font-bold">Popular items</h1>
       <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-3 gap-y-5">
         {popularProducts.map((product) => (
           <PopularItem

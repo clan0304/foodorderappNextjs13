@@ -64,10 +64,10 @@ const PopularItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           )}
         </div>
         <div className="flex flex-col justify-center gap-y-1 max-w-[200px]">
-          <h2 className="font-semibold text-xs sm:text-lg min-h-[40px] max-w-1/2 hover:underline">
+          <h2 className="font-semibold text-[9px] sm:text-md min-h-[40px] max-w-1/2 hover:underline">
             {title}
           </h2>
-          <h3>${price}</h3>
+          <h3 className="text-[10px] sm:text-lg">${price}</h3>
         </div>
       </div>
     </div>

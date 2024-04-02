@@ -47,7 +47,7 @@ const Navbar = () => {
           )}
 
           <div
-            className="flex gap-2 text-black bg-slate-200 rounded-xl items-center px-3 hover:opacity-50 hover:cursor-pointer"
+            className="flex gap-2 text-black bg-slate-200 rounded-xl items-center px-1 py-1 xs:px-3 hover:opacity-50 hover:cursor-pointer text-xs xs:text-md"
             onClick={() => {
               router.push('/cart');
             }}
@@ -57,7 +57,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-x-2 items-center">
-            <div className="flex items-center gap-x-2 text-white bg-black rounded-xl px-3 hover:cursor-pointer hover:opacity-50">
+            <div className="flex items-center gap-x-2 text-white bg-black rounded-xl px-1 py-1 xs:px-3 hover:cursor-pointer hover:opacity-50 text-xs xs:text-md">
               <FaUserCircle size={20} />
               {session ? (
                 <button onClick={handleLogout}>Log Out</button>

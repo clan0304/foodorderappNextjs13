@@ -64,10 +64,10 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           )}
         </div>
         <div className="flex flex-col justify-center gap-y-1 max-w-1/2">
-          <h2 className="font-semibold min-h-[40px] text-xs sm:text-lg hover:underline">
+          <h2 className="font-semibold min-h-[40px] text-[9px] sm:text-md hover:underline">
             {title}
           </h2>
-          <h3>${price}</h3>
+          <h3 className="text-10px sm:text-lg">${price}</h3>
         </div>
       </div>
     </div>

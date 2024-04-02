@@ -5,7 +5,7 @@ import { Link } from 'react-scroll';
 
 const MenuNavbar = () => {
   return (
-    <div className="flex gap-10 font-outfit font-semibold hover:cursor-pointer bg-white sm:text-lg text-sm">
+    <div className="flex gap-3 sm:gap-10 font-outfit font-semibold hover:cursor-pointer bg-white sm:text-lg text-sm overflow-auto">
       <ul className="active:bg-slate-700 border-2 border-black hover:bg-red-600 rounded-lg px-1 sm:px-3">
         <Link
           to="rice-section"
