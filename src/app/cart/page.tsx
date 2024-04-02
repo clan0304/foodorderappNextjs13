@@ -83,7 +83,7 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex items-center flex-col sm:flex-row sm:gap-10">
-              <span className="text-blue-600 font-bold text-sm sm:text-md md:text-lg">
+              <span className="text-blue-600 font-bold text-xs sm:text-sm md:text-md">
                 $ {product.price}
               </span>
             </div>
