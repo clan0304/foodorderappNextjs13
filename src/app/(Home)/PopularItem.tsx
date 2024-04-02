@@ -49,7 +49,7 @@ const PopularItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           />
           <div className="absolute right-2 bottom-2">
             <button
-              className="bg-white px-2 sm:px-3 rounded-2xl font-semibold text-sm sm:text-lg"
+              className="bg-blue-500 text-white px-2 sm:px-3 rounded-2xl font-semibold text-xs sm:text-lg hover:opacity-80 hover:curosr-pointer"
               onClick={handleCart}
             >
               Add
@@ -57,14 +57,14 @@ const PopularItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           </div>
           {isPopular && (
             <div className="absolute  top-3 left-0 ">
-              <div className="w-[60px] sm:w-[80px] flex justify-center items-center text-center rounded-md h-6 bg-green-500 text-white text-md font-semibold">
-                <h1 className="ml-1 text-[0.75rem] sm:text-[1rem]">Popular</h1>
+              <div className="w-[40px] sm:w-[80px] flex justify-center items-center text-center rounded-md h-4 sm:h-6 bg-green-500 text-white text-md font-semibold">
+                <h1 className="text-[0.5rem] sm:text-[1rem]">Popular</h1>
               </div>
             </div>
           )}
         </div>
         <div className="flex flex-col justify-center gap-y-1 max-w-[200px]">
-          <h2 className="font-semibold text-xs sm:text-lg min-h-[40px] max-w-1/2">
+          <h2 className="font-semibold text-xs sm:text-lg min-h-[40px] max-w-1/2 hover:underline">
             {title}
           </h2>
           <h3>${price}</h3>
