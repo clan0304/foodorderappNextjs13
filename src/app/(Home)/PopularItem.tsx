@@ -39,7 +39,7 @@ const PopularItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
       onClick={navigateToProduct}
     >
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">
-        <div className="relative sm:w-[200px] sm:h-[200px] w-[100px] h-[100px] rounded-lg">
+        <div className="relative max-w-1/3 aspect-[1/1] h-[70px] sm:w-[200px] sm:h-[200px]  xs:w-[100px] xs:h-[100px] rounded-lg">
           <Image
             src={img}
             alt="image"
@@ -64,7 +64,9 @@ const PopularItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           )}
         </div>
         <div className="flex flex-col justify-center gap-y-1 max-w-[200px]">
-          <h2 className="font-semibold min-h-[40px]">{title}</h2>
+          <h2 className="font-semibold text-xs sm:text-lg min-h-[40px] max-w-1/2">
+            {title}
+          </h2>
           <h3>${price}</h3>
         </div>
       </div>
