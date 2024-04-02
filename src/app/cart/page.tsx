@@ -67,7 +67,7 @@ const Cart = () => {
               />
             </div>
             <div className="flex gap-x-3 w-2/5 justify-around items-center h-[40px]">
-              <h1 className="text-md sm:text-lg">{product.title}</h1>
+              <h1 className="text-xs sm:text-md md:text-lg">{product.title}</h1>
               <div className="flex gap-2 items-center">
                 <CiSquareMinus
                   size={15}
@@ -83,12 +83,12 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex items-center flex-col sm:flex-row sm:gap-10">
-              <span className="text-blue-600 font-bold text-md sm:text-lg">
+              <span className="text-blue-600 font-bold text-sm sm:text-md md:text-lg">
                 $ {product.price}
               </span>
             </div>
             <p
-              className="hover:underline hover:cursor-pointer text-red-600"
+              className="hover:underline hover:cursor-pointer text-red-600 text-xs sm:text-sm md:text-md lg:text-lg"
               onClick={() => removeFromCart(product)}
             >
               Remove

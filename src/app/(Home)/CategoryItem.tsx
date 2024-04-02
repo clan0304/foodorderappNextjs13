@@ -49,7 +49,7 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           />
           <div className="absolute right-2 bottom-2">
             <button
-              className="bg-blue-500 text-white px-2 sm:px-3 rounded-2xl font-semibold text-xs sm:text-lg hover:opacity-80 hover:curosr-pointer"
+              className="bg-blue-700 text-white px-2 sm:px-3 rounded-2xl font-semibold text-xs sm:text-lg hover:opacity-80 hover:curosr-pointer"
               onClick={handleCart}
             >
               Add
