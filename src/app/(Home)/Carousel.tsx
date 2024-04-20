@@ -53,12 +53,14 @@ const Carousel = () => {
 
               <button
                 className="absolute top-[50%] left-[10px] z-10 text-2xl text-gray-600"
+                aria-label="previous"
                 onClick={() => sliderRef?.current?.slickPrev()}
               >
                 <MdOutlineArrowBackIos color="white" />
               </button>
               <button
                 className="absolute top-[50%] right-[10px] z-10 text-2xl text-gray-600"
+                aria-label="next"
                 onClick={() => sliderRef?.current?.slickNext()}
               >
                 <MdOutlineArrowForwardIos color="white" />
