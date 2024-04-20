@@ -39,15 +39,16 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
       onClick={navigateToProduct}
     >
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">
-        <div className="relative max-w-1/3 aspect-[1/1] h-[70px] sm:w-[200px] sm:h-[200px] xs:w-[100px] xs:h-[100px] rounded-lg">
+        <div className="relative min-w-[40px] w-1/3 sm:w-4/5 aspect-[1/1] rounded-lg">
           <Image
             src={img}
             alt="image"
             fill
             objectFit="cover"
             className="rounded-lg"
+            sizes="(max-width:624px) 33vw, 80vw"
           />
-          <div className="absolute right-2 bottom-2">
+          <div className="hidden xs:block absolute right-2 bottom-2">
             <button
               className="bg-blue-700 text-white px-2 sm:px-3 rounded-2xl font-semibold text-xs sm:text-lg hover:opacity-80 hover:curosr-pointer"
               onClick={handleCart}
@@ -56,15 +57,15 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
             </button>
           </div>
           {isPopular && (
-            <div className="absolute  top-3 left-0 ">
+            <div className="absolute  max-w-1/2 top-3 left-0 ">
               <div className="w-[40px] sm:w-[80px] flex justify-center items-center text-center rounded-md h-4 sm:h-6 bg-green-600 text-white text-md font-semibold">
                 <h1 className="text-[0.5rem] sm:text-[1rem]">Popular</h1>
               </div>
             </div>
           )}
         </div>
-        <div className="flex flex-col justify-center gap-y-1 max-w-1/2">
-          <h2 className="font-semibold min-h-[40px] text-[9px] sm:text-md hover:underline">
+        <div className="flex flex-col justify-center gap-y-1 w-1/2 sm:w-4/5">
+          <h2 className="font-semibold min-h-[40px] text-[11px] xs:text-[13px] sm:text-[16px] md:text-lg lg:text-xl hover:underline">
             {title}
           </h2>
           <h3 className="text-10px sm:text-lg">${price}</h3>

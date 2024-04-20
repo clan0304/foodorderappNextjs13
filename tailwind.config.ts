@@ -18,6 +18,14 @@ const config: Config = {
       outfit: ['var(--font-outfit)'],
       lobster: ['var(--font-lobster)'],
     },
+
+    screens: {
+      xs: '380px',
+      sm: '624px',
+      md: '800px',
+      lg: '1024px',
+      xl: '1400px',
+    },
   },
   plugins: [],
 };
