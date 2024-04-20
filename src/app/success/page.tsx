@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { useCartStore } from '../../utils/store';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const SuccessPage = () => {
   const router = useRouter();
@@ -25,14 +26,22 @@ const SuccessPage = () => {
   }, [router, clearProducts]);
 
   return (
-    <>
-      <div className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] flex items-center justify-center text-center text-2xl text-green-700">
-        <p className="max-w-[600px]">
-          Payment successful. You are being redirected to the orders page.
-          Please do not close the page.
+    <div className="w-full min-h-[100vh] flex items-center justify-center">
+      <div className="w-2/3 text-center flex flex-col items-center justify-center gap-8">
+        <FaCheckCircle color="green" size={100} />
+        <p className="text-3xl sm:text-5xl lg:text-7xl xl:text-8xl">
+          Thanks for your order!
         </p>
+        <div className="flex justify-center">
+          <button
+            className="bg-indigo-500 text-white px-7 py-2 rounded-xl text-md md:text-lg font-semibold hover:opacity-70"
+            onClick={() => router.push('/collections')}
+          >
+            Continue to Shopping
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
