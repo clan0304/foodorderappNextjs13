@@ -10,7 +10,7 @@ export default function Home() {
       <div className="w-full h-full mb-10 ">
         <Carousel />
       </div>
-      <div className="flex flex-col sm:flex-row gap-3 px-10">
+      <div className="flex flex-col sm:flex-row gap-3 sm:px-10">
         <div className="hidden sm:block sm:w-1/4 lg:w-1/5 w-full">
           <Sidebar />
         </div>

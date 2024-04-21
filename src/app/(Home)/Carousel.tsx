@@ -46,25 +46,10 @@ const Carousel = () => {
                 </div>
               </div>
               <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center ">
-                <p className="text-white font-semibold text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+                <p className="text-white font-semibold text-md xs:text-[5vw] sm:text-[6vw]">
                   {item.description}
                 </p>
               </div>
-
-              <button
-                className="absolute top-[50%] left-[10px] z-10 text-2xl text-gray-600"
-                aria-label="previous"
-                onClick={() => sliderRef?.current?.slickPrev()}
-              >
-                <MdOutlineArrowBackIos color="white" />
-              </button>
-              <button
-                className="absolute top-[50%] right-[10px] z-10 text-2xl text-gray-600"
-                aria-label="next"
-                onClick={() => sliderRef?.current?.slickNext()}
-              >
-                <MdOutlineArrowForwardIos color="white" />
-              </button>
             </section>
           </div>
         );
