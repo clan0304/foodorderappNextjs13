@@ -53,15 +53,15 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center w-full p-10 gap-20">
+    <div className="flex flex-col w-full sm:p-10 gap-20">
       <div className="flex flex-col gap-y-3">
         {products.map((product) => (
           <div
             key={product.id}
             className="flex w-full bg-white gap-3 rounded-lg pr-2"
           >
-            <div className="flex flex-col gap-3 xs:flex-row">
-              <div className="relative w-2/5 min-w-[70px] aspect-[1/1] rounded-lg">
+            <div className="flex flex-col  sm:w-2/5 w-1/2 gap-3 lg:gap-10 xs:flex-row">
+              <div className="relative w-3/5 min-w-[70px] aspect-[1/1] rounded-lg">
                 <Image
                   src={product.img}
                   alt="Product"
@@ -70,11 +70,11 @@ const Cart = () => {
                   className="rounded-lg"
                 />
               </div>
-              <div className="w-2/5 flex items-center text-xs sm:text-sm md:text-lg">
+              <div className="w-2/5 flex items-center text-sm sm:text-lg md:text-xl lg:text-2xl">
                 {product.title}
               </div>
             </div>
-            <div className="flex items-center  justify-end sm:justify-center w-1/5 sm:w-2/5 flex-col sm:flex-row sm:gap-5">
+            <div className="flex items-center  justify-end w-1/2 sm:w-1/2 flex-col sm:flex-row sm:gap-5">
               <div className="flex flex-col sm:justify-between gap-2 my-3  items-center">
                 <div className="flex gap-1 items-center">
                   <CiSquareMinus
@@ -101,14 +101,14 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-between my-3 mx-3 font-semibold font-xl">
-        <p>Total</p>
+      <div className="flex justify-center gap-5 my-3 mx-3 font-semibold text-lg md:text-2xl lg:text-3xl">
+        <p>Total : </p>
         <p>$ {totalPrice}</p>
       </div>
       <div className="flex justify-end items-end mt-5">
         <button
           onClick={handleCheckout}
-          className="bg-indigo-500 w-full px-7 py-2 rounded-xl font-semibold"
+          className="bg-blue-400 w-full px-7 py-2 rounded-xl font-semibold"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -116,7 +116,7 @@ const Cart = () => {
               <div role="status">
                 <svg
                   aria-hidden="true"
-                  className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-indigo-600"
+                  className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-400"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
