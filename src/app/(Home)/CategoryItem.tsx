@@ -50,7 +50,7 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           />
           <div className="hidden xs:block absolute right-2 bottom-2">
             <button
-              className="bg-blue-700 text-white px-2 sm:px-3 rounded-2xl font-semibold text-xs sm:text-lg hover:opacity-80 hover:curosr-pointer"
+              className="bg-blue-700 text-white px-3 rounded-2xl font-semibold text-lg hover:opacity-80 hover:curosr-pointer"
               onClick={handleCart}
             >
               Add
@@ -58,8 +58,8 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           </div>
           {isPopular && (
             <div className="absolute  max-w-1/2 top-3 left-0 ">
-              <div className="w-[40px] sm:w-[80px] flex justify-center items-center text-center rounded-md h-4 sm:h-6 bg-green-600 text-white text-md font-semibold">
-                <h1 className="text-[0.5rem] sm:text-[1rem]">Popular</h1>
+              <div className="w-full px-3 flex justify-center items-center text-center rounded-md h-4 xs:h-6 bg-green-600 text-white text-md font-semibold">
+                <h1 className="text-[0.5rem] xs:text-[1rem]">Popular</h1>
               </div>
             </div>
           )}
