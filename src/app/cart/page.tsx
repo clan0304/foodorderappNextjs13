@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { CiSquarePlus } from 'react-icons/ci';
 import { CiSquareMinus } from 'react-icons/ci';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const {
@@ -25,29 +26,33 @@ const Cart = () => {
   }, []);
 
   const handleCheckout = async () => {
-    if (!session) {
-      router.push('/login');
+    if (products.length === 0) {
+      toast.error('No Product is added.');
     } else {
-      try {
-        setIsLoading(true);
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/orders`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              price: totalPrice,
-              products,
-              status: 'Not Paid!',
-              userEmail: session.user.email,
-            }),
-          }
-        );
-        const data = await res.json();
-        router.push(`/payment/${data.id}`);
-        setIsLoading(false);
-      } catch (error) {
-        setIsLoading(false);
+      if (!session) {
+        router.push('/login');
+      } else {
+        try {
+          setIsLoading(true);
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/orders`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                price: totalPrice,
+                products,
+                status: 'Not Paid!',
+                userEmail: session.user.email,
+              }),
+            }
+          );
+          const data = await res.json();
+          router.push(`/payment/${data.id}`);
+          setIsLoading(false);
+        } catch (error) {
+          setIsLoading(false);
+        }
       }
     }
   };
