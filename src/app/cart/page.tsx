@@ -58,7 +58,7 @@ const Cart = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex w-full bg-white gap-3 rounded-lg pr-2"
+            className="flex w-full bg-white gap-3 rounded-lg pr-2 lg:px-16 xl:px-20"
           >
             <div className="flex flex-col  sm:w-2/5 w-1/2 gap-3 lg:gap-10 xs:flex-row">
               <div className="relative w-3/5 min-w-[70px] aspect-[1/1] rounded-lg">
@@ -74,7 +74,7 @@ const Cart = () => {
                 {product.title}
               </div>
             </div>
-            <div className="flex items-center  justify-end w-1/2 sm:w-1/2 flex-col sm:flex-row sm:gap-5">
+            <div className="flex items-center  justify-end w-1/2 sm:w-1/2 flex-col sm:flex-row sm:gap-5 text-md lg:text-xl">
               <div className="flex flex-col sm:justify-between gap-2 my-3  items-center">
                 <div className="flex gap-1 items-center">
                   <CiSquareMinus
@@ -105,10 +105,10 @@ const Cart = () => {
         <p>Total : </p>
         <p>$ {totalPrice}</p>
       </div>
-      <div className="flex justify-end items-end mt-5">
+      <div className="flex justify-end lg:justify-center items-end mt-5">
         <button
           onClick={handleCheckout}
-          className="bg-blue-400 w-full px-7 py-2 rounded-xl font-semibold"
+          className="bg-blue-400 w-full lg:w-1/2 px-7 py-2 rounded-xl font-semibold"
           disabled={isLoading}
         >
           {isLoading ? (
