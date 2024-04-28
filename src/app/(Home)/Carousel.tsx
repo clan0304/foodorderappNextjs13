@@ -33,9 +33,9 @@ const Carousel = () => {
             key={index}
             className="relative w-full aspect-[20/9] max-h-[80vh]"
           >
-            <section className="relative w-full h-full mx-auto bg-white p-5 sm:p-12 grid grid-cols-1 sm:grid-cols-[1fr_3fr] md:grid-cols-[1fr_4fr] items-center gap-5 md:gap-8 rounded-xl">
+            <section className="relative w-full  h-full mx-auto bg-white xs:p-5 sm:p-12 grid grid-cols-1 sm:grid-cols-[1fr_3fr] md:grid-cols-[1fr_4fr] items-center gap-5 md:gap-8 rounded-xl">
               <div className="space-y-5 text-center">
-                <div className="mx-auto bg-gray-200">
+                <div className="bg-gray-200 min-w-[200px]">
                   <Image
                     src={item.img}
                     alt="Boy"

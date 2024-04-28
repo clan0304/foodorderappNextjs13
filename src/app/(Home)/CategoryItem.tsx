@@ -39,7 +39,7 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
       onClick={navigateToProduct}
     >
       <div className="flex flex-row sm:flex-col gap-y-2 gap-x-5 w-full">
-        <div className="relative min-w-[40px] w-1/3 sm:w-4/5 aspect-[1/1] rounded-lg">
+        <div className="relative min-w-[60px] w-1/3 sm:w-4/5 aspect-[1/1] rounded-lg">
           <Image
             src={img}
             alt="image"
@@ -58,7 +58,7 @@ const CategoryItem = ({ price, title, img, id, isPopular }: SafeProduct) => {
           </div>
           {isPopular && (
             <div className="absolute  max-w-1/2 top-3 left-0 ">
-              <div className="w-full px-3 flex justify-center items-center text-center rounded-md h-4 xs:h-6 bg-green-600 text-white text-md font-semibold">
+              <div className="w-full px-3 flex justify-center items-center text-center rounded-md h-4 xs:h-6 bg-green-700 text-white text-md font-semibold">
                 <h1 className="text-[0.5rem] xs:text-[1rem]">Popular</h1>
               </div>
             </div>
