@@ -4,10 +4,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import {
-  MdOutlineArrowBackIos,
-  MdOutlineArrowForwardIos,
-} from 'react-icons/md';
 import { useRef } from 'react';
 import { carouselItems } from './CarouselItem';
 import Image from 'next/image';
