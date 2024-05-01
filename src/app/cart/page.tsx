@@ -58,7 +58,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col w-full sm:p-10 gap-20">
+    <div className="flex flex-col w-full pt-5 sm:p-10 gap-20">
       <div className="flex flex-col gap-y-3">
         {products.map((product) => (
           <div
